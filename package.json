@@ -1,0 +1,28 @@
+{
+  "name": "petshop-ui",
+  "version": "1.0.0",
+  "description": "UI project for petshop Backend demo 2",
+  "main": "app.js.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolesnicknick/petshop-ui.git"
+  },
+  "keywords": [
+    "petshop-ui"
+  ],
+  "author": "Nikolay Kolesnik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kolesnicknick/petshop-ui/issues"
+  },
+  "homepage": "https://github.com/kolesnicknick/petshop-ui#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
