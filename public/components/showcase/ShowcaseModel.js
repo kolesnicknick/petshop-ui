@@ -7,7 +7,7 @@ export default class ShowcaseModel {
         this.selectedName = "";
         this.selectedSpecies = "";
         this.selectedSorting = "";
-        this.page = "";
+        this.page = 1;
         this.itemsPerPage = 10;
         this.totalPages = "";
     }
@@ -77,17 +77,20 @@ export default class ShowcaseModel {
     }
 
 
-    fetchPets() {
-        return api.getProducts({"page":1})
+    fetchPets(params) {
+        return api.getProducts(params)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                return this.petsData = data.data.map(pet => {
+                this.petsData = data.data.map(pet => {
                     pet.age = ShowcaseModel.defineAge(pet["birth_date"]);
                     pet.image = api.baseUrl + "/" + pet.imageSrc;
                     console.log(pet);
                     return pet;
                 });
+                this.totalPages = data.info[0].totalPages;
+
+                return {data: this.petsData, info: data.info}
             });
     }
 

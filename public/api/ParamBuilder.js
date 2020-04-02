@@ -10,7 +10,7 @@ class UrlParams {
             }
 
             withSort(sortParams) {
-                this.query += (this.asParam(`sort=${sort}`));
+                this.query += (this.asParam(`sort=${sortParams}`));
                 return this;
             }
 
@@ -26,6 +26,11 @@ class UrlParams {
 
             withBreed(breed) {
                 this.query += (this.asParam(`breed=${breed}`));
+                return this;
+            }
+
+            withName(name) {
+                this.query += (this.asParam(`name=${name}`));
                 return this;
             }
 

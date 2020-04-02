@@ -36,17 +36,17 @@ export default class FiltrationView {
             breedField = document.querySelector(".breed-input"),
             nameField = document.querySelector(".name-input"),
             speciesSelector = document.querySelector(".selector"),
-            priceSortet = document.querySelector(".sort");
+            priceSorted = document.querySelector(".sort");
 
         let breed = null, name = null, species = null, sorting = "price:ASC";
 
         breedField.oninput = event => breed = event.target.value.trim().toLowerCase();
         nameField.oninput = event => name = event.target.value.trim().toLowerCase();
         speciesSelector.onchange = event => species = event.target.value;
-        priceSortet.onclick = () => {
-            priceSortet.classList.toggle('dsc');
+        priceSorted.onclick = () => {
+            priceSorted.classList.toggle('dsc');
             sorting = this._togglePriceSorting(sorting);
-        }
+        };
 
         searchButton.onclick = () => this.searchItemsCb({ breed, name, species, sorting });
     }

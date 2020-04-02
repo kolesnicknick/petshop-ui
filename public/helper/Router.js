@@ -1,6 +1,7 @@
 import Publisher from "./Publisher.js";
 import AuthController from "../components/authorization/AuthController.js";
 import ShowcaseController from "../components/showcase/ShowcaseController.js";
+import OrderController from "../components/common/OrderController.js";
 
 const publisher = new Publisher(),
     routes = [
@@ -24,7 +25,7 @@ export default class Router {
     handlehash() {
         let { name, params } = this._getRoute();
 
-        if (name && routes.includes(name)) { 
+        if (name && routes.includes(name)) {
             name = name.toUpperCase().slice(0, 1) + name.slice(1);
 
             const method = `_display${name}`;
@@ -40,5 +41,10 @@ export default class Router {
     _displayShowcase() {
         const showcasePage = new ShowcaseController();
         showcasePage.render();
+    }
+
+    _displayOrders() {
+        const ordersPage = new OrderController();
+        ordersPage.render();
     }
 }

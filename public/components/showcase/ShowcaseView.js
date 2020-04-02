@@ -48,16 +48,18 @@ export default class ShowcaseView {
         showcase.innerHTML = "";
     }
 
+    _removeToken(){localStorage.removeItem("token");}
     _renderUserBlock() {
         const token = localStorage.getItem("token");
-        return !token ? 
+        return !token ?
                         `<div class="auth-buttons">
+                            <a href="#orders" class="link">Orders</a>
                             <a href="#auth" class="sign-in-wrapper">Sign in</a>
                         </div>` :
                         `<div class="auth-buttons">
-                            <a href="#create_order" class="link">Create order</a>
                             <a href="#orders" class="link">Orders</a>
                             <a href="#profile" class="link">My profile</a>
+                            <a class="link logout" onclick=localStorage.removeItem("token")>Logout</a>
                          </div>`;
     }
 }

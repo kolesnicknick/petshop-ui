@@ -6,9 +6,33 @@ class ApiClient {
     }
 
     async getProducts(params) {
-        const search = paramBuilder.withPage(params.page || 1).withLimit(10).build();
-        console.log(search);
-        return await fetch(`${this.baseUrl}/products${search}`)
+        console.log(params);
+        let query = "";
+        if(params) {
+            if (!isEmpty(params.breed)) {
+                paramBuilder.withBreed(params.breed)
+            }
+            if (!isEmpty(params.name)) {
+                paramBuilder.withName(params.name)
+            }
+            if (!isEmpty(params.species)) {
+                paramBuilder.withCategories(params.species)
+            }
+            if (!isEmpty(params.sorting)) {
+                paramBuilder.withSort(params.sorting)
+            }
+            if (!isEmpty(params.page)) {
+                paramBuilder.withPage(params.page)
+            }
+           query = paramBuilder.build();
+            console.log(query);
+        }
+
+        function isEmpty(value){
+            return (typeof value === "undefined" ||value == null || value.length === 0);
+        }
+
+        return await fetch(`${this.baseUrl}/products${query}`)
     }
 
     async login({email, password}) {

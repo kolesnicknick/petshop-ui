@@ -31,9 +31,9 @@ export default class ShowcaseController {
 
         const response = await model.fetchPets();
         model.pets = response.data;
-        model.currentPage = response.info.page;
-        model.totalPageCount = response.info.totalPages;
-        this.paginator = new PaginatorController(response.info);
+        model.currentPage = response.info[0].page;
+        model.totalPageCount = response.info[0].totalPages;
+        this.paginator = new PaginatorController(response.info[0]);
 
         this.view.render();
         this.paginator.render();
@@ -52,13 +52,14 @@ export default class ShowcaseController {
         model.sorting = sorting;
         model.currentPage = 1;
 
-        _rerenderShowcase();
+        this._rerenderShowcase();
     }
 
     _paginate(newPage) {
+        console.log(newPage);
         this.model.currentPage = newPage;
-        
-        _rerenderShowcase();
+
+        this._rerenderShowcase();
     }
 
     refresh() {

@@ -1,7 +1,7 @@
 import { api } from "../../api/ApiClient.js";
 import Validator from "../../helper/Validator.js"
 
-export default class AithView {
+export default class AuthView {
     constructor() {
         this.template = this._initTemplate();
         this.signInFields = {
