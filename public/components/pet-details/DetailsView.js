@@ -41,7 +41,6 @@ export default class DetailsView {
 
                                 </div>
                                 <div class="details-price">
-                                    <div class="details-price-img"></div>
                                     $ ${petData.price} 
                                 </div>
                             </div>
@@ -55,7 +54,7 @@ export default class DetailsView {
         this._initHandlers();
     }
 
-    _initHandlers() { 
+    _initHandlers() {
         this._element.onclick = event => {
             const target = event.target;
             if (target.classList.contains("modal-wrapper")) {

@@ -25,7 +25,6 @@ class ApiClient {
                 paramBuilder.withPage(params.page)
             }
            query = paramBuilder.build();
-            console.log(query);
         }
 
         function isEmpty(value){

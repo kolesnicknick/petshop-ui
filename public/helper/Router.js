@@ -6,7 +6,8 @@ import OrderController from "../components/common/OrderController.js";
 const publisher = new Publisher(),
     routes = [
         'auth',
-        'showcase'
+        'showcase',
+        'orders'
     ];
 
 export default class Router {
